@@ -52,7 +52,7 @@ The application is configured to connect to the following database schema on the
 *   **Database (DB) Name:** `SCHOOL-DB`
 *   **Relation (Table) Name:** `STUDENT-TABLE`
 *   **Primary Key Reference:** `Roll-No`
-*   **Connection Token:** `90933500|-31949244584205779|90903844`
+*   **Connection Token:** `YOUR_TOKEN`
 
 These values are centralized at the top of `js/index.js` for easy modification:
 ```javascript
