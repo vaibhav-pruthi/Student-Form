@@ -1,0 +1,434 @@
+/* 
+ * STUDENT ENROLLMENT FORM STYLESHEET
+ * Premium Dark-Indigo Glassmorphism Aesthetic
+ */
+
+/* ==========================================================================
+   1. Root variables & Design Tokens
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --bg-gradient: linear-gradient(135deg, #090d16 0%, #151a30 100%);
+    --card-bg: rgba(26, 31, 54, 0.7);
+    --card-border: rgba(255, 255, 255, 0.06);
+    --input-bg: rgba(15, 18, 36, 0.8);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-focus-border: #6366f1;
+    --input-focus-shadow: rgba(99, 102, 241, 0.25);
+    
+    /* State-specific Accent Colors */
+    --accent-indigo: #6366f1;
+    --save-color: #10b981;
+    --save-hover: #059669;
+    --update-color: #3b82f6;
+    --update-hover: #2563eb;
+    --reset-color: #f43f5e;
+    --reset-hover: #e11d48;
+    
+    /* Typography Colors */
+    --text-title: #ffffff;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-disabled: #475569;
+    
+    /* System & Shadows */
+    --premium-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --btn-shadow-active: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    --border-radius-lg: 16px;
+    --border-radius-md: 10px;
+    --transition-speed: 0.25s;
+    --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   2. Reset & Base Layout Setup
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. Header Styling
+   ========================================================================== */
+.app-header {
+    width: 100%;
+    text-align: center;
+    padding: 2.5rem 1rem 1rem 1rem;
+}
+
+.header-container h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-title);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.header-container h1 i {
+    color: var(--accent-indigo);
+}
+
+.header-container p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   4. Main Content & Layout
+   ========================================================================== */
+.app-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1.5rem 1rem;
+}
+
+.form-section {
+    width: 100%;
+    max-width: 680px;
+}
+
+/* Premium Card container using backdrop-filter blur */
+.form-container {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--premium-shadow);
+    transition: transform var(--transition-speed) ease;
+}
+
+.form-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1.25rem;
+}
+
+.form-header h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-title);
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-secondary);
+    font-size: 0.925rem;
+}
+
+/* ==========================================================================
+   5. Form Inputs & Field Groups
+   ========================================================================== */
+#studentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group label i {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Required field indicator color */
+.required-indicator {
+    color: var(--reset-color);
+    font-weight: bold;
+}
+
+/* Basic Input and Textarea Styling */
+.form-group input,
+.form-group textarea {
+    font-family: var(--font-stack);
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    width: 100%;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+/* Focus State Styling with transition */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 4px var(--input-focus-shadow);
+    background-color: rgba(15, 18, 36, 0.95);
+}
+
+/* Input Placeholder styles */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-disabled);
+}
+
+/* Disabled Input State Styling */
+.form-group input:disabled,
+.form-group textarea:disabled {
+    background-color: rgba(15, 18, 36, 0.4);
+    border-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+.form-group input:disabled::placeholder,
+.form-group textarea:disabled::placeholder {
+    color: rgba(71, 85, 105, 0.3);
+}
+
+/* Roll-No Description / Helper Text Styling */
+.help-text {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   6. Command Actions (Buttons)
+   ========================================================================== */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    flex: 1;
+    font-family: var(--font-stack);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all var(--transition-speed) ease;
+    color: #ffffff;
+}
+
+/* Save Button */
+.btn-save {
+    background-color: var(--save-color);
+}
+
+.btn-save:hover:not(:disabled) {
+    background-color: var(--save-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.25);
+}
+
+/* Update Button */
+.btn-update {
+    background-color: var(--update-color);
+}
+
+.btn-update:hover:not(:disabled) {
+    background-color: var(--update-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.25);
+}
+
+/* Reset Button */
+.btn-reset {
+    background-color: rgba(244, 63, 94, 0.15);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #ff6b8b;
+}
+
+.btn-reset:hover:not(:disabled) {
+    background-color: var(--reset-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(244, 63, 94, 0.25);
+}
+
+/* Common Active Button Click Micro-Animation */
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--btn-shadow-active);
+}
+
+/* Disabled Button state styling */
+.btn:disabled {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-disabled) !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================================================
+   7. Alert Notifications
+   ========================================================================== */
+.notification-area {
+    margin-top: 0.5rem;
+    min-height: 0px;
+    transition: all 0.3s ease;
+}
+
+.alert {
+    padding: 1rem 1.25rem;
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.alert i {
+    font-size: 1.1rem;
+    margin-top: 0.1rem;
+}
+
+.alert-success {
+    background-color: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+}
+
+.alert-error {
+    background-color: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #fb7185;
+}
+
+.alert-info {
+    background-color: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #818cf8;
+}
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #818cf8;
+    font-size: 0.925rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    padding: 0.75rem;
+    border-radius: var(--border-radius-md);
+    background-color: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   8. Footer Styling
+   ========================================================================== */
+.app-footer {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-disabled);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   9. Media Queries (Mobile & Tablet Responsiveness)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 1.5rem 1rem 0.5rem 1rem;
+    }
+
+    .header-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .header-container p {
+        font-size: 0.9rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .form-header {
+        margin-bottom: 1.75rem;
+    }
+
+    .form-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+    }
+}
