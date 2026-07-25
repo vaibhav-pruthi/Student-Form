@@ -57,7 +57,7 @@ The application is configured to connect to the following database schema on the
 These values are centralized at the top of `js/index.js` for easy modification:
 ```javascript
 const BASE_URL = "http://api.login2explore.com:5577";
-const CONN_TOKEN = "90933500|-31949244584205779|90903844";
+const CONN_TOKEN = "YOUR_TOKEN";
 const DB_NAME = "SCHOOL-DB";
 const RELATION_NAME = "STUDENT-TABLE";
 ```
